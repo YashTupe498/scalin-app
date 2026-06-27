@@ -26,7 +26,8 @@ export function BlackHoleCanvas({ scrollYProgress }: BlackHoleCanvasProps) {
     // Create new array to store images and trigger react state when done
     for (let i = 0; i < frameCount; i++) {
       const img = new window.Image();
-      img.src = `/sequence/frame_${i}.jpg`;
+      // Added /scalin-app basePath for GitHub Pages
+      img.src = `/scalin-app/sequence/frame_${i}.jpg`;
       img.onload = () => {
         loadedCount++;
         setProgress(Math.round((loadedCount / frameCount) * 100));
